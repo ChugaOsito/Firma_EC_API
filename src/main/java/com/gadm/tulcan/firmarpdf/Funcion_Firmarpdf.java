@@ -48,9 +48,14 @@ public class Funcion_Firmarpdf {
 //    private static final String FILE = "C:\\Users\\desarrollo\\Downloads\\documento_blanco-signed.pdf";
 //    private static final String FILE = "/home/mfernandez/documento_blanco-signed.pdf";
     private static  String FILE ;
+    private static  String PosicionX ;
+    private static  String PosicionY ;
+    private static  String Pagina ;
 //    private static final String FILE = "/home/mfernandez/Descargas/test/mozilla.pdf.p7m";
       public Boolean Invocador(String Documento, String Certificado, String Contraseña,int pagina, int UbicacionHorizontal,int UbicacionVertical)throws KeyStoreException, Exception {
-        
+        PosicionX=Integer.toString(UbicacionHorizontal);
+        PosicionY=Integer.toString(UbicacionVertical);
+        Pagina=Integer.toString(pagina);
           PASSWORD=Contraseña;
 FILE = Documento; 
 ARCHIVO=Certificado;
@@ -70,8 +75,8 @@ ARCHIVO=Certificado;
         //String llx = "419";
         //String lly = "91";
         //INFERIOR CENTRADO
-        String llx = "260";
-        String lly = "210";
+        String llx = PosicionX;
+        String lly = PosicionY;
         //QR
         //SUPERIOR IZQUIERDA
         //String llx = "10";
@@ -98,7 +103,7 @@ ARCHIVO=Certificado;
         params.setProperty(PDFSigner.SIGNING_LOCATION, "12345678901234567890");
         params.setProperty(PDFSigner.SIGNING_REASON, "Firmado digitalmente con RUBRICA");
         params.setProperty(PDFSigner.SIGN_TIME, TiempoUtils.getFechaHoraServidor());
-        params.setProperty(PDFSigner.LAST_PAGE, "0");//Aqui se pone el numero de pagina si el numero es cero escojera la ultima pagina del documento
+        params.setProperty(PDFSigner.LAST_PAGE, Pagina);//Aqui se pone el numero de pagina si el numero es cero escojera la ultima pagina del documento
         params.setProperty(PDFSigner.TYPE_SIG, "QR");
         params.setProperty(PDFSigner.INFO_QR, "Firmado digitalmente con RUBRICA\nhttps://minka.gob.ec/rubrica/rubrica");
 //        params.setProperty(PDFSigner.TYPE_SIG, "information2");

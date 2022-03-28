@@ -5,13 +5,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public  class SalidasValidarpdf {
-    private static String Cedula;
-    private static String Nombre;
-    private static String Institucion;
-    private static String Cargo;
-    private static String Valido_Desde;
-    private static String Valido_Hasta;
-    private static String Fecha_Firmado;
+    private  String Cedula;
+    private  String Nombre;
+    private  String Institucion;
+    private  String Cargo;
+    private  String Valido_Desde;
+    private  String Valido_Hasta;
+    private  String Fecha_Firmado;
+       private  boolean Validez;
+
+    public boolean isValidez() {
+        return Validez;
+    }
+
+    public void setValidez(boolean Validez) {
+        this.Validez = Validez;
+    }
+
+  
     public  SalidasValidarpdf(){
     
     }
